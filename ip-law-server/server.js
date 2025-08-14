@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const connectDB = require('./config/database');
+const path = require('path');
+
+
+
 
 // Import routes
 const authRoutes = require('./routes/auth');
@@ -12,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Connect to MongoDB
-connectDB();
+// connectDB();
 
 // Middleware
 app.use(cors({
@@ -29,6 +33,17 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/contact', contactRoutes);
+
+// Serve static files
+app.use('/images', express.static(path.join(__dirname, 'public', 'images')));
+
+// Serve static files from the client build directory
+app.use(express.static(path.join(__dirname, '../ip-law-client/dist')));
+
+// Handle client-side routing for pages including insightpage
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../ip-law-client/dist/index.html'));
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

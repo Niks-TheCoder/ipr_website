@@ -3,7 +3,7 @@ import Services from '../components/Services'
 
 function Home() {
   return (
-    <div className="home">
+    <div className="min-h-screen">
       <Hero />
       <Services />
     </div>

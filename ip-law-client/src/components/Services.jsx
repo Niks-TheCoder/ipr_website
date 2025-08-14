@@ -23,15 +23,15 @@ function Services() {
   ]
 
   return (
-    <section id="services" className="services">
-      <div className="services-container">
-        <h2>Our Services</h2>
-        <div className="services-grid">
+    <section id="services" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-16">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon">{service.icon}</div>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+            <div key={index} className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
+              <div className="text-6xl mb-6">{service.icon}</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>

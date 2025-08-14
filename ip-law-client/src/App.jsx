@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import Contact from './pages/Contact'
+import Insights from './pages/Insights'
 import ProtectedRoute from './components/ProtectRoute'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/insights" element={<Insights />} />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route 
             path="/dashboard" 
